@@ -1,0 +1,17 @@
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.ApplicationServices\bin\Debug\net5.0\ManagerCollection.ApplicationServices.deps.json
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.ApplicationServices\bin\Debug\net5.0\ManagerCollection.ApplicationServices.dll
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.ApplicationServices\bin\Debug\net5.0\ManagerCollection.ApplicationServices.pdb
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.ApplicationServices\bin\Debug\net5.0\ManagerCollection.Core.dll
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.ApplicationServices\bin\Debug\net5.0\ManagerCollection.EntityFramwork.dll
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.ApplicationServices\bin\Debug\net5.0\ManagerCollection.Core.pdb
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.ApplicationServices\bin\Debug\net5.0\ManagerCollection.EntityFramwork.pdb
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.ApplicationServices\obj\Debug\net5.0\ManagerCollection.ApplicationServices.csproj.AssemblyReference.cache
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.ApplicationServices\obj\Debug\net5.0\ManagerCollection.ApplicationServices.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.ApplicationServices\obj\Debug\net5.0\ManagerCollection.ApplicationServices.AssemblyInfoInputs.cache
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.ApplicationServices\obj\Debug\net5.0\ManagerCollection.ApplicationServices.AssemblyInfo.cs
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.ApplicationServices\obj\Debug\net5.0\ManagerCollection.ApplicationServices.csproj.CoreCompileInputs.cache
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.ApplicationServices\obj\Debug\net5.0\ManagerCollection.ApplicationServices.csproj.CopyComplete
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.ApplicationServices\obj\Debug\net5.0\ManagerCollection.ApplicationServices.dll
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.ApplicationServices\obj\Debug\net5.0\refint\ManagerCollection.ApplicationServices.dll
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.ApplicationServices\obj\Debug\net5.0\ManagerCollection.ApplicationServices.pdb
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.ApplicationServices\obj\Debug\net5.0\ref\ManagerCollection.ApplicationServices.dll
