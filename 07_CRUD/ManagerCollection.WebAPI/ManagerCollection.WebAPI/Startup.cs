@@ -1,5 +1,10 @@
+using GymManager.DataAccess.Repositories;
 using ManagerCollection.ApplicationServices.Collections;
+using ManagerCollection.ApplicationServices.Collections.Categories;
+using ManagerCollection.ApplicationServices.Collections.Products;
+using ManagerCollection.Core;
 using ManagerCollection.EntityFramework;
+using ManagerCollection.EntityFramwork.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -15,6 +20,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 
 namespace ManagerCollection.WebAPI
 {
@@ -54,8 +60,19 @@ namespace ManagerCollection.WebAPI
 
 
             services.AddTransient<IBrandAppServices, BrandAppServices>();
+            //services.AddTransient<IRepository<int, Core.Brand>, Repository<int, Core.Brand>>();
+            services.AddTransient<IRepository<int, Core.Brand>, BrandRepository>();
+
             services.AddTransient<ICategoryAppServices, CategoryAppServices>();
+            //services.AddTransient<IRepository<int, Core.Category>, Repository<int, Core.Category>>();
+            services.AddTransient<IRepository<int, Core.Category>, CategoryRepository>();
+
             services.AddTransient<IProductAppServices, ProductAppServices>();
+            services.AddTransient<IRepository<int, Core.Product>, ProductRepository> ();
+
+
+            services.AddAutoMapper(typeof(ManagerCollection.ApplicationServices.MapperProfile));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,11 +82,16 @@ namespace ManagerCollection.WebAPI
 
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ManagerCollection.WebAPI v1"));
-                context.Database.Migrate();
+                app.UseExceptionHandler("/error-development");
             }
+            else
+            {
+                app.UseExceptionHandler("/error");
+            }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ManagerCollection.WebAPI v1"));
+            context.Database.Migrate();
 
 
             app.UseHttpsRedirection();

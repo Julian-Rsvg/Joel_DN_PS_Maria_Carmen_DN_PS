@@ -1,8 +1,13 @@
-﻿using ManagerSale.ApplicationServices.Sales;
+﻿using ManagerSale.ApplicationServices.Sales.Sell;
 using ManagerSale.Core;
+using ManagerSale.Sales.Dto;
+using ManagerSale.WebAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+
 
 namespace ManagerSale.WebAPI.Controllers
 {
@@ -13,9 +18,9 @@ namespace ManagerSale.WebAPI.Controllers
     {
         private readonly ISellerAppServices _sellerAppServices;
 
-        private readonly ILogger<SellersController> _logger;
+        Serilog.ILogger _logger;
 
-        public SellersController(ISellerAppServices sellerAppServices, ILogger<SellersController> logger)
+        public SellersController(ISellerAppServices sellerAppServices, Serilog.ILogger logger)
         {
             _sellerAppServices = sellerAppServices;
             _logger = logger;
@@ -23,44 +28,60 @@ namespace ManagerSale.WebAPI.Controllers
 
         // GET: api/
         [HttpGet]
-        public IEnumerable<Seller> Get()
+        public async Task<IEnumerable<SellerDto>> Get()
         {
-            var sellers = _sellerAppServices.GetAll();
-            _logger.LogInformation("Total sellers: " + sellers?.Count);
+            List<SellerDto> sellers = await _sellerAppServices.GetSellersAsync();
+            _logger.Information("Total sellers: " + sellers?.Count);
             return sellers;
         }
 
         // GET api/
         [HttpGet("{id}")]
-        public Seller Get(int id)
+        public async Task<SellerDto> Get(int id)
         {
-            _logger.LogInformation("Seller id: " + id);
-            return _sellerAppServices.Get(id);
+            SellerDto seller = await _sellerAppServices.GetSellerAsync(id);
+            _logger.Information("Seller id: " + id);
+            return seller;
         }
 
         // POST api/
         [HttpPost]
-        public void Post([FromBody] Seller value)
+        public async Task<Int32> Post(SellerModel entity)
         {
-            _logger.LogInformation("Insert seller: " + value);
-            _sellerAppServices.Insert(value);
+            Seller seller = new Seller
+            {
+               Name= entity.Name,
+               LastName= entity.LastName,
+               Email = entity.Email,
+               Password = entity.Password
+            };
+            var Result = await _sellerAppServices.AddSellerAsync(seller);
+            _logger.Information("Insert seller: " + entity);
+            return Result;
         }
 
         // PUT api/
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Seller value)
+        public async Task Put(int id, SellerModel entity)
         {
-            value.Id = id;
-            _logger.LogInformation("Seller upadate: " +value);
-            _sellerAppServices.Update(value);
+            Seller seller = new Seller
+            {
+                Id = id,
+                Name = entity.Name,
+                LastName = entity.LastName,
+                Email = entity.Email,
+                Password = entity.Password
+            };
+            await _sellerAppServices.EditSellerAsync(seller);
+            _logger.Information("Seller upadate: " +seller);
         }
 
         // DELETE api/
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            _logger.LogInformation("seller Remove: " + id);
-            _sellerAppServices.Delete(id);
+            await _sellerAppServices.DeleteSellerAsync(id);
+            _logger.Information("seller Remove: " + id);
         }
 
     }

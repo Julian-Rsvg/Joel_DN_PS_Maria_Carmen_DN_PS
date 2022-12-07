@@ -1,8 +1,12 @@
-﻿using ManagerCollection.ApplicationServices.Collections;
+﻿using ManagerCollection.ApplicationServices.Collections.Products;
+using ManagerCollection.Collection.Dto;
 using ManagerCollection.Core;
+using ManagerCollection.WebAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ManagerCollection.WebAPI.Controllers
 {
@@ -12,54 +16,80 @@ namespace ManagerCollection.WebAPI.Controllers
     {
         private readonly IProductAppServices _productAppServices;
 
-        private readonly ILogger<ProductsController> _logger;
+        Serilog.ILogger _logger;
 
-        public ProductsController(IProductAppServices productAppServices, ILogger<ProductsController> logger)
+        public ProductsController(IProductAppServices productAppServices, Serilog.ILogger logger)
         {
             _productAppServices = productAppServices;
-            _logger = logger;
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         // GET: api/
         [HttpGet]
-        public IEnumerable<Product> Get()
+        public async Task<List<ProductDto>> Get()
         {
-            var products = _productAppServices.GetAll();
-            _logger.LogInformation("Products total: " + products?.Count);
+            List<ProductDto> products = await _productAppServices.GetProductsAsync();
+            _logger.Information("Products total: " + products?.Count);
             return products;
         }
 
         // GET api/
         [HttpGet("{id}")]
-        public Product Get(int id)
+        public async Task<ProductDto> Get(int id)
         {
-            _logger.LogInformation("product id: " + id);
-            return _productAppServices.Get(id);
+            ProductDto product = await _productAppServices.GetProductAsync(id);
+            _logger.Information("product id: " + id);
+            return product;
         }
 
         // POST api/
         [HttpPost]
-        public void Post([FromBody] Product value)
+        public async Task<Int32> Post(ProductModel entity)
         {
-            _logger.LogInformation("Insert product: " + value);
-            _productAppServices.Insert(value);
+            Product product = new Product { 
+                Name= entity.Name,
+                Brand = new Brand
+                {
+                    Id=entity.BrandId
+                },
+                Category = new Category
+                {
+                    Id= entity.CategoryId
+                }
+            };
+            var Result = await _productAppServices.AddProductAsync(product);
+            _logger.Information("Insert product: " + product);
+            return Result;            
         }
 
         // PUT api/
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Product value)
+        public async Task Put(int id, ProductModel entity)
         {
-            value.Id = id;
-            _logger.LogInformation("Update product: " +value);
-            _productAppServices.Update(value);
+            Product product = new Product
+            {
+                Id=id,
+                Name = entity.Name,
+                Brand = new Brand
+                {
+                    Id = entity.BrandId
+                },
+                Category = new Category
+                {
+                    Id = entity.CategoryId
+                }
+            };
+            await _productAppServices.EditProductAsync(product);
+            _logger.Information("Update product: " + product);
+            
         }
 
         // DELETE api/
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            _logger.LogInformation("product delete: " + id);
-            _productAppServices.Delete(id);
+            await _productAppServices.DeleteProductAsync(id);
+            _logger.Information("product delete: " + id);
         }
 
     }

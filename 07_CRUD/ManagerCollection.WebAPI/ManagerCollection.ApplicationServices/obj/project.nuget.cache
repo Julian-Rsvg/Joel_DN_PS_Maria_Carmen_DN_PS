@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "N+ww6YeP8BMapOIfv19IEb6RN9X3Q2xY7p4rDSeONW0K/iw4//oOzESTlBzcZdcNjs1SdVa57zlXwWeZi8VfDg==",
+  "dgSpecHash": "Pb86HjlI79Y6z+8Hl/kuww8gEpu1IOVkDXvRMFZYiE9rVXcCWsVkCTFuJT3s0zhD3NLDVWjvQnxhS+P+VBftVA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Julian\\Documents\\Joel_DN_PS_Maria_Carmen_DN_PS\\07_CRUD\\ManagerCollection.WebAPI\\ManagerCollection.ApplicationServices\\ManagerCollection.ApplicationServices.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Julian\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\Julian\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Julian\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.17\\microsoft.entityframeworkcore.5.0.17.nupkg.sha512",
     "C:\\Users\\Julian\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.17\\microsoft.entityframeworkcore.abstractions.5.0.17.nupkg.sha512",
     "C:\\Users\\Julian\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.17\\microsoft.entityframeworkcore.analyzers.5.0.17.nupkg.sha512",

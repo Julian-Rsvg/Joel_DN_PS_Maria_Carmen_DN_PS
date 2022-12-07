@@ -25,7 +25,7 @@ namespace ManagerSale.EntityFramework.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Product");
+                    b.ToTable("ProductsType");
                 });
 
             modelBuilder.Entity("ManagerSale.Core.SaleProduct", b =>

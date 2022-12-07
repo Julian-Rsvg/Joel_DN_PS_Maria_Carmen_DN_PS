@@ -15,3 +15,5 @@ C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollectio
 C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.ApplicationServices\obj\Debug\net5.0\refint\ManagerCollection.ApplicationServices.dll
 C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.ApplicationServices\obj\Debug\net5.0\ManagerCollection.ApplicationServices.pdb
 C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.ApplicationServices\obj\Debug\net5.0\ref\ManagerCollection.ApplicationServices.dll
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.ApplicationServices\bin\Debug\net5.0\ManagerCollection.ApplicationServices.Shared.dll
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.ApplicationServices\bin\Debug\net5.0\ManagerCollection.ApplicationServices.Shared.pdb

@@ -1,7 +1,10 @@
 ﻿using ManagerCollection.ApplicationServices.Collections;
+using ManagerCollection.Collection.Dto;
 using ManagerCollection.Core;
+using ManagerCollection.WebAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -13,54 +16,56 @@ namespace ManagerCollection.WebAPI.Controllers
     {
         private readonly IBrandAppServices _brandAppServices;
 
-        private readonly ILogger<BrandsController> _logger;
-        public BrandsController(IBrandAppServices brandAppServices, ILogger<BrandsController> logger)
+        Serilog.ILogger _logger;
+
+        public BrandsController(IBrandAppServices brandAppServices, Serilog.ILogger logger)
         {
             _brandAppServices = brandAppServices;
-            _logger = logger;
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         // GET: api/
         [HttpGet]
-        public IEnumerable<Brand> Get()
+        public async Task<IEnumerable<BrandDto>> Get()
         {
-            var brands = _brandAppServices.GetAll();
-            _logger.LogInformation("Total list: "+ brands?.Count);
-            
+            List<BrandDto> brands =await _brandAppServices.GetBrandsAsync();
+            _logger.Information("Total list: "+ brands?.Count);            
             return brands;
         }
 
         // GET api/
         [HttpGet("{id}")]
-        public Brand Get(int id)
+        public async Task<BrandDto> Get(int id)
         {
-            _logger.LogInformation("Query id: "+id);
-            return _brandAppServices.Get(id);
+            BrandDto brand = await _brandAppServices.GetBrandAsync(id);
+            _logger.Information("Brand id: "+id);
+            return brand;
         }
 
         // POST api/
         [HttpPost]
-        public void Post([FromBody] Brand value)
+        public async Task<Int32> Post(BrandDto entity)
         {
-            _logger.LogInformation("value insert: " + value);
-            _brandAppServices.Insert(value);
+            var Result = await _brandAppServices.AddBrandAsync(entity);
+            _logger.Information("value insert: " + entity);
+            return Result;
         }
 
         // PUT api/
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Brand value)
+        public async Task Put(int id, BrandDto entity)
         {
-            value.Id = id;
-            _logger.LogInformation("value update: " + value);
-            _brandAppServices.Update(value);
+            await _brandAppServices.EditBrandAsync(entity);
+            _logger.Information("value update: " + entity);
+            
         }
 
         // DELETE api/
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task Delete (int id)
         {
-            _logger.LogInformation("id delete: " + id);
-            _brandAppServices.Delete(id);
+            await _brandAppServices.DeleteBrandAsync(id);
+            _logger.Information("id delete: " + id);
         }
 
     }

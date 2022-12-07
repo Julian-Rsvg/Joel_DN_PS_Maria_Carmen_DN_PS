@@ -1,8 +1,12 @@
-﻿using ManagerCollection.ApplicationServices.Collections;
+﻿using ManagerCollection.ApplicationServices.Collections.Categories;
+using ManagerCollection.Collection.Dto;
 using ManagerCollection.Core;
+using ManagerCollection.WebAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ManagerCollection.WebAPI.Controllers
 {
@@ -12,54 +16,55 @@ namespace ManagerCollection.WebAPI.Controllers
     {
         private readonly ICategoryAppServices _categoryAppServices;
 
-        private readonly ILogger<CategoriesController> _logger;
-        public CategoriesController(ICategoryAppServices categoryAppServices, ILogger<CategoriesController> logger)
+        Serilog.ILogger _logger;
+        public CategoriesController(ICategoryAppServices categoryAppServices, Serilog.ILogger logger)
         {
             _categoryAppServices = categoryAppServices;
-            _logger = logger;
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         // GET: api/
         [HttpGet]
-        public IEnumerable<Category> Get()
+        public async Task<List<CategoryDto>> Get()
         {
-            var categories = _categoryAppServices.GetAll();
-            _logger.LogInformation("Total categories: "+categories?.Count);
+            List<CategoryDto> categories = await _categoryAppServices.GetCategoriesAsync();
+            _logger.Information("Total categories: "+categories?.Count);
 
             return categories;
         }
 
         // GET api/
         [HttpGet("{id}")]
-        public Category Get(int id)
+        public async Task<CategoryDto> Get(int id)
         {
-            _logger.LogInformation("Category id: "+id);
-            return _categoryAppServices.Get(id);
+            CategoryDto category = await _categoryAppServices.GetCategoryAsync(id);
+            _logger.Information("Category id: "+id);
+            return category;
         }
 
         // POST api/
         [HttpPost]
-        public void Post([FromBody] Category value)
+        public async Task<Int32> Post(CategoryDto entity)
         {
-            _logger.LogInformation("insert values: " + value);
-            _categoryAppServices.Insert(value);
+            var Result = await _categoryAppServices.AddCategoryAsync(entity);
+            _logger.Information("insert values: " + entity);
+            return Result;
         }
 
         // PUT api/
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Category value)
+        public async Task Put(int id, CategoryDto entity)
         {
-            value.Id = id;
-            _logger.LogInformation("Category value update: " + value);
-            _categoryAppServices.Update(value);
+            await _categoryAppServices.EditCategoryAsync(entity);
+            _logger.Information("Category value update: " + entity);
         }
 
         // DELETE api/
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            _logger.LogInformation("Category id delete: " + id);
-            _categoryAppServices.Delete(id);
+            await _categoryAppServices.DeleteCategoryAsync(id);
+            _logger.Information("Category id delete: " + id);
         }
     }
 }

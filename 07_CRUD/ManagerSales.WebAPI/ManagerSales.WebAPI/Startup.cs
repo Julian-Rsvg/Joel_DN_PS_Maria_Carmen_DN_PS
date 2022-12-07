@@ -1,5 +1,9 @@
-using ManagerSale.ApplicationServices.Sales;
+using GymManager.DataAccess.Repositories;
+using ManagerSale.ApplicationServices.Sales.Sell;
+//using ManagerSale.ApplicationServices.Sales.SP;
+using ManagerSale.Core;
 using ManagerSale.EntityFramework;
+using ManagerSale.EntityFramework.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -15,6 +19,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using ManagerSale.ApplicationServices.Collection;
+using ManagerSale.ApplicationServices.Sales.S;
+using System.Net.Http;
 
 namespace ManagerSales.WebAPI
 {
@@ -53,7 +61,26 @@ namespace ManagerSales.WebAPI
 
 
             services.AddTransient<ISellerAppServices, SellerAppServices>();
-            services.AddTransient<ISaleProductAppServices, SaleProductAppServices>();
+            services.AddTransient<IRepository<int, ManagerSale.Core.Seller>, SellerRepository>();
+            
+            services.AddTransient<IProductCollectionAppService, ProductCollectionAppService>();
+
+            services.AddTransient<ISaleAppService, SaleAppService>();
+            services.AddTransient<IRepository<int, ManagerSale.Core.SaleProduct>, SaleProductRepository>();
+            //services.AddTransient<IRepository<int, ManagerSale.Core.SaleProduct>, Repository<int, ManagerSale.Core.SaleProduct>>();
+
+
+            services.AddHttpClient("product", client =>
+            {
+                client.BaseAddress = new Uri(Configuration["AppSetting:productUrlBase"]);
+            }).ConfigurePrimaryHttpMessageHandler((c)=>
+                new HttpClientHandler()
+                {
+                    ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; }
+                }
+            );
+
+            services.AddAutoMapper(typeof(ManagerSale.ApplicationServices.MapperProfile));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,11 +90,18 @@ namespace ManagerSales.WebAPI
 
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ManagerSales.WebAPI v1"));
-                context.Database.Migrate();
+                app.UseExceptionHandler("/error-development");
+
             }
+            else
+            {
+                app.UseExceptionHandler("/error");
+            }
+
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ManagerSales.WebAPI v1"));
+            context.Database.Migrate();
 
             app.UseHttpsRedirection();
 
