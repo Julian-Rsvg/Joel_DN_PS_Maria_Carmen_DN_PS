@@ -1,0 +1,12 @@
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.Core\bin\Debug\net5.0\ManagerCollection.Core.deps.json
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.Core\bin\Debug\net5.0\ManagerCollection.Core.dll
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.Core\bin\Debug\net5.0\ManagerCollection.Core.pdb
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.Core\obj\Debug\net5.0\ManagerCollection.Core.csproj.AssemblyReference.cache
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.Core\obj\Debug\net5.0\ManagerCollection.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.Core\obj\Debug\net5.0\ManagerCollection.Core.AssemblyInfoInputs.cache
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.Core\obj\Debug\net5.0\ManagerCollection.Core.AssemblyInfo.cs
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.Core\obj\Debug\net5.0\ManagerCollection.Core.csproj.CoreCompileInputs.cache
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.Core\obj\Debug\net5.0\ManagerCollection.Core.dll
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.Core\obj\Debug\net5.0\refint\ManagerCollection.Core.dll
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.Core\obj\Debug\net5.0\ManagerCollection.Core.pdb
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.Core\obj\Debug\net5.0\ref\ManagerCollection.Core.dll

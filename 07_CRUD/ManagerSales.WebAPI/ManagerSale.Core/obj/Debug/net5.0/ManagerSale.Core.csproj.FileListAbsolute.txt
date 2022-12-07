@@ -1,0 +1,12 @@
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerSales.WebAPI\ManagerSale.Core\bin\Debug\net5.0\ManagerSale.Core.deps.json
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerSales.WebAPI\ManagerSale.Core\bin\Debug\net5.0\ManagerSale.Core.dll
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerSales.WebAPI\ManagerSale.Core\bin\Debug\net5.0\ManagerSale.Core.pdb
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerSales.WebAPI\ManagerSale.Core\obj\Debug\net5.0\ManagerSale.Core.csproj.AssemblyReference.cache
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerSales.WebAPI\ManagerSale.Core\obj\Debug\net5.0\ManagerSale.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerSales.WebAPI\ManagerSale.Core\obj\Debug\net5.0\ManagerSale.Core.AssemblyInfoInputs.cache
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerSales.WebAPI\ManagerSale.Core\obj\Debug\net5.0\ManagerSale.Core.AssemblyInfo.cs
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerSales.WebAPI\ManagerSale.Core\obj\Debug\net5.0\ManagerSale.Core.csproj.CoreCompileInputs.cache
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerSales.WebAPI\ManagerSale.Core\obj\Debug\net5.0\ManagerSale.Core.dll
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerSales.WebAPI\ManagerSale.Core\obj\Debug\net5.0\refint\ManagerSale.Core.dll
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerSales.WebAPI\ManagerSale.Core\obj\Debug\net5.0\ManagerSale.Core.pdb
+C:\Users\Julian\Documents\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerSales.WebAPI\ManagerSale.Core\obj\Debug\net5.0\ref\ManagerSale.Core.dll
