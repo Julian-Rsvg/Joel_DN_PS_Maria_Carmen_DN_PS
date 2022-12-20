@@ -25,6 +25,10 @@ namespace ManagerCollection.ApplicationServices.Collections.Products
 
         public async Task<int> AddProductAsync(Product product)
         {
+            if (string.IsNullOrWhiteSpace(product.Name))
+            {
+                throw new Exception("value is null!, Insert Name!");
+            }
             //var p = _mapper.Map<Product>(product);
             await _repository.AddAsync(product);
             return product.Id;
@@ -37,6 +41,10 @@ namespace ManagerCollection.ApplicationServices.Collections.Products
 
         public async Task EditProductAsync(Product product)
         {
+            if (string.IsNullOrWhiteSpace(product.Name))
+            {
+                throw new Exception("value is null!, Insert Name!");
+            }
             //var p = _mapper.Map<Product>(product);
             await _repository.UpdateAsync(product);
         }

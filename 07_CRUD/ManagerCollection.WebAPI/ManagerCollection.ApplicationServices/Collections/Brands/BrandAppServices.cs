@@ -12,6 +12,7 @@ using AutoMapper;
 
 namespace ManagerCollection.ApplicationServices.Collections
 {
+    
     public class BrandAppServices : IBrandAppServices
     {
         private readonly IRepository<int,Core.Brand> _repository;
@@ -25,6 +26,10 @@ namespace ManagerCollection.ApplicationServices.Collections
 
         public async Task<int> AddBrandAsync(Brand brand)
         {
+            if (string.IsNullOrWhiteSpace(brand.Name))
+            {
+                throw new Exception("value is null!, Insert Name!");
+            }
             //var b = _mapper.Map<Core.Brand>(brand);
             await _repository.AddAsync(brand);
             return brand.Id;
@@ -37,6 +42,10 @@ namespace ManagerCollection.ApplicationServices.Collections
 
         public async Task EditBrandAsync(Brand brand)
         {
+            if (string.IsNullOrWhiteSpace(brand.Name))
+            {
+                throw new Exception("value is null!, Insert Name!");
+            }
             //var b = _mapper.Map<Core.Brand>(brand);
             await _repository.UpdateAsync(brand);
         }

@@ -1,9 +1,11 @@
-﻿namespace ManagerCollection.WebAPI.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ManagerCollection.WebAPI.Models
 {
     public class BrandModel
     {
-        //public int Id { get; set; }
-        
+        [Required()]
+        [StringLength(80)]
         public string Name { get; set; }
     }
 }

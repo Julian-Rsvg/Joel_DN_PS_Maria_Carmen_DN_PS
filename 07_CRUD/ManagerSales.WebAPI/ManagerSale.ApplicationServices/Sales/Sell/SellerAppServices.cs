@@ -25,6 +25,12 @@ namespace ManagerSale.ApplicationServices.Sales.Sell
 
         public async Task<int> AddSellerAsync(Seller seller)
         {
+            if (string.IsNullOrWhiteSpace(seller.Name) || string.IsNullOrWhiteSpace(seller.LastName)
+                || string.IsNullOrWhiteSpace(seller.Password) || string.IsNullOrWhiteSpace(seller.Email)
+                )
+            {
+                throw new Exception("Dont't insert values null please!");
+            }
             //var s = _mapper.Map<Core.Seller>(seller);
             await _repository.AddAsync(seller);
             return seller.Id;
@@ -37,6 +43,12 @@ namespace ManagerSale.ApplicationServices.Sales.Sell
 
         public async Task EditSellerAsync(Seller seller)
         {
+            if (string.IsNullOrWhiteSpace(seller.Name) || string.IsNullOrWhiteSpace(seller.LastName)
+                || string.IsNullOrWhiteSpace(seller.Password) || string.IsNullOrWhiteSpace(seller.Email)
+                )
+            {
+                throw new Exception("Dont't insert values null please!");
+            }
             //var s = _mapper.Map<Core.Seller>(seller);
             await _repository.UpdateAsync(seller);
         }

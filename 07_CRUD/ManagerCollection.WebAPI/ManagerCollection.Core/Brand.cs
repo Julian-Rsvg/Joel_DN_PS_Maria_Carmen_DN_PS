@@ -12,7 +12,8 @@ namespace ManagerCollection.Core
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required()]
+        [StringLength(80)]
         public string Name { get; set; }
 
         public List<Product> Products { get; set; }

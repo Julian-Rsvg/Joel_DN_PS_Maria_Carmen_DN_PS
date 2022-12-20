@@ -1,9 +1,10 @@
-﻿namespace ManagerCollection.WebAPI.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ManagerCollection.WebAPI.Models
 {
     public class CategoryModel
     {
-        //public int Id { get; set; }
-
+        [Required]
         public string Name { get; set; }
     }
 }
