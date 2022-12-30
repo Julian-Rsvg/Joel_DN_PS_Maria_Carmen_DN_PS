@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ManagerCollection.EntityFramwork.Repositories
 {
-    public class ProductRepository: Repository<int, Product>
+    public class ProductRepository: Repository<int, Core.Product>
     {
         public ProductRepository(ManagerCollectionContext context): base(context)
         {
@@ -34,6 +34,8 @@ namespace ManagerCollection.EntityFramwork.Repositories
 
             return product;
         }
+
+        
 
         public override async Task<Product> GetAsync(int id)
         {

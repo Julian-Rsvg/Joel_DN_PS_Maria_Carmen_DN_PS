@@ -46,34 +46,18 @@ namespace ManagerSale.WebAPI.Controllers
 
         // POST api/
         [HttpPost]
-        public async Task<Int32> Post(SellerModel entity)
-        {
-            Seller seller = new Seller
-            {
-               Name= entity.Name,
-               LastName= entity.LastName,
-               Email = entity.Email,
-               Password = entity.Password
-            };
-            var Result = await _sellerAppServices.AddSellerAsync(seller);
+        public async Task Post(SellerAddDto entity)
+        {           
+            await _sellerAppServices.AddSellerAsync(entity);
             _logger.Information("Insert seller: " + entity);
-            return Result;
         }
 
         // PUT api/
         [HttpPut("{id}")]
-        public async Task Put(int id, SellerModel entity)
+        public async Task Put(int id, SellerAddDto entity)
         {
-            Seller seller = new Seller
-            {
-                Id = id,
-                Name = entity.Name,
-                LastName = entity.LastName,
-                Email = entity.Email,
-                Password = entity.Password
-            };
-            await _sellerAppServices.EditSellerAsync(seller);
-            _logger.Information("Seller upadate: " +seller);
+            await _sellerAppServices.EditSellerAsync(entity);
+            _logger.Information("Seller upadate: " +entity);
         }
 
         // DELETE api/

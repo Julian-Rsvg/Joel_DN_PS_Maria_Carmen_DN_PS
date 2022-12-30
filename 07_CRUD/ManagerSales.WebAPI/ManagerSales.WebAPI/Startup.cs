@@ -1,6 +1,5 @@
 using GymManager.DataAccess.Repositories;
 using ManagerSale.ApplicationServices.Sales.Sell;
-//using ManagerSale.ApplicationServices.Sales.SP;
 using ManagerSale.Core;
 using ManagerSale.EntityFramework;
 using ManagerSale.EntityFramework.Repositories;
@@ -42,6 +41,9 @@ namespace ManagerSales.WebAPI
 
             services.AddDbContext<ManagerSalesContext>(options =>
                 options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
+            /*services.AddDbContext<ManagerSalesContext>(options =>
+                options.UseInMemoryDatabase("SaleDB"));*/
 
 
             services.Configure<ApiBehaviorOptions>(options =>

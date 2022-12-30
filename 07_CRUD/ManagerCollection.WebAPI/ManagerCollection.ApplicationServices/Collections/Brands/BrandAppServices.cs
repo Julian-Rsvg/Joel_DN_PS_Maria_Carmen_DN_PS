@@ -24,15 +24,15 @@ namespace ManagerCollection.ApplicationServices.Collections
             _mapper = mapper;
         }
 
-        public async Task<int> AddBrandAsync(Brand brand)
+        public async Task AddBrandAsync(BrandAddDto brand)
         {
             if (string.IsNullOrWhiteSpace(brand.Name))
             {
                 throw new Exception("value is null!, Insert Name!");
             }
-            //var b = _mapper.Map<Core.Brand>(brand);
-            await _repository.AddAsync(brand);
-            return brand.Id;
+            var b = _mapper.Map<Core.Brand>(brand);
+            await _repository.AddAsync(b);
+            //return brand.Id;
         }
 
         public async Task DeleteBrandAsync(int brandId)
@@ -40,14 +40,14 @@ namespace ManagerCollection.ApplicationServices.Collections
             await _repository.DeleteAsync(brandId);
         }
 
-        public async Task EditBrandAsync(Brand brand)
+        public async Task EditBrandAsync(BrandAddDto brand)
         {
             if (string.IsNullOrWhiteSpace(brand.Name))
             {
                 throw new Exception("value is null!, Insert Name!");
             }
-            //var b = _mapper.Map<Core.Brand>(brand);
-            await _repository.UpdateAsync(brand);
+            var b = _mapper.Map<Core.Brand>(brand);
+            await _repository.UpdateAsync(b);
         }
 
         public async Task<BrandDto> GetBrandAsync(int brandId)

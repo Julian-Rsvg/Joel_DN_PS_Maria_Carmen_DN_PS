@@ -12,11 +12,11 @@ namespace ManagerCollection.ApplicationServices.Collections.Products
     {
         Task<List<ProductDto>> GetProductsAsync();
 
-        Task<int> AddProductAsync(Product product);
+        Task AddProductAsync(ProductAddDto product);
 
         Task DeleteProductAsync(int productId);
         Task<ProductDto> GetProductAsync(int productId);
 
-        Task EditProductAsync(Product product);
+        Task EditProductAsync(ProductAddDto product);
     }
 }

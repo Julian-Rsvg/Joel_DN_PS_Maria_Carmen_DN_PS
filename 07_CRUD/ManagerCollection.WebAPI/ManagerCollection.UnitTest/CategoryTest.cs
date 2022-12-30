@@ -29,14 +29,13 @@ namespace ManagerCollection.UnitTest
         [Test]
         public async Task PostCategory_should()
         {
-            Category category = new Category
+            CategoryAddDto category = new CategoryAddDto
             {
-                Id = 1,
                 Name = "Dulces"
             };
             var repository = server.Host.Services.GetService<ICategoryAppServices>();
-            var result = await repository.AddCategoryAsync(category);
-            IdCategory = result;
+            var result = repository.AddCategoryAsync(category);
+            IdCategory = result.Id;
             Assert.AreEqual(1, IdCategory);
         }
 
@@ -62,9 +61,8 @@ namespace ManagerCollection.UnitTest
         [Test]
         public async Task PutCategory_Test()
         {
-            Category category = new Category
+            CategoryAddDto category = new CategoryAddDto
             {
-                Id = 1,
                 Name = "Paletas"
             };
             var repository = server.Host.Services.GetService<ICategoryAppServices>();

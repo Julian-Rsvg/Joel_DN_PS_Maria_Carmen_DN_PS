@@ -25,14 +25,13 @@ namespace ManagerCollection.UnitTest
         [Test]
         public async Task PostBrand_should()
         {
-            Brand brand = new Brand
+            BrandAddDto brand = new BrandAddDto
             {
-                Id = 1,
                 Name = "Alpura"
             };
             var repository = server.Host.Services.GetService<IBrandAppServices>();
-            var result = await repository.AddBrandAsync(brand);
-            IdBrand = result;
+            var result = repository.AddBrandAsync(brand);
+            IdBrand = result.Id;
             Assert.AreEqual(1, IdBrand);
         }
 
@@ -58,9 +57,8 @@ namespace ManagerCollection.UnitTest
         [Test]
         public async Task PutBrand_Test()
         {
-            Brand brand = new Brand
+            BrandAddDto brand = new BrandAddDto
             {
-                Id = 1,
                 Name = "Aurelita"
             };
             var repository = server.Host.Services.GetService<IBrandAppServices>();

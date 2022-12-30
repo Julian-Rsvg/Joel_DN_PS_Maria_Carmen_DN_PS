@@ -41,6 +41,8 @@ namespace ManagerCollection.WebAPI
             services.AddDbContext<ManagerCollectionContext>(options =>
                 options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
+            /*services.AddDbContext<ManagerSalesContext>(options =>
+                options.UseInMemoryDatabase("CollectionDB"));*/
 
             services.Configure<ApiBehaviorOptions>(options =>
             {

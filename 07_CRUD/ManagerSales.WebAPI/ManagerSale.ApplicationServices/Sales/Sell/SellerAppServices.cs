@@ -23,7 +23,7 @@ namespace ManagerSale.ApplicationServices.Sales.Sell
             _mapper = mapper;
         }
 
-        public async Task<int> AddSellerAsync(Seller seller)
+        public async Task AddSellerAsync(SellerAddDto seller)
         {
             if (string.IsNullOrWhiteSpace(seller.Name) || string.IsNullOrWhiteSpace(seller.LastName)
                 || string.IsNullOrWhiteSpace(seller.Password) || string.IsNullOrWhiteSpace(seller.Email)
@@ -31,9 +31,8 @@ namespace ManagerSale.ApplicationServices.Sales.Sell
             {
                 throw new Exception("Dont't insert values null please!");
             }
-            //var s = _mapper.Map<Core.Seller>(seller);
-            await _repository.AddAsync(seller);
-            return seller.Id;
+            var s = _mapper.Map<Core.Seller>(seller);
+            await _repository.AddAsync(s);
         }
 
         public async Task DeleteSellerAsync(int sellerId)
@@ -41,7 +40,7 @@ namespace ManagerSale.ApplicationServices.Sales.Sell
             await _repository.DeleteAsync(sellerId);
         }
 
-        public async Task EditSellerAsync(Seller seller)
+        public async Task EditSellerAsync(SellerAddDto seller)
         {
             if (string.IsNullOrWhiteSpace(seller.Name) || string.IsNullOrWhiteSpace(seller.LastName)
                 || string.IsNullOrWhiteSpace(seller.Password) || string.IsNullOrWhiteSpace(seller.Email)
@@ -49,8 +48,8 @@ namespace ManagerSale.ApplicationServices.Sales.Sell
             {
                 throw new Exception("Dont't insert values null please!");
             }
-            //var s = _mapper.Map<Core.Seller>(seller);
-            await _repository.UpdateAsync(seller);
+            var s = _mapper.Map<Core.Seller>(seller);
+            await _repository.UpdateAsync(s);
         }
 
         public async Task<SellerDto> GetSellerAsync(int sellerId)

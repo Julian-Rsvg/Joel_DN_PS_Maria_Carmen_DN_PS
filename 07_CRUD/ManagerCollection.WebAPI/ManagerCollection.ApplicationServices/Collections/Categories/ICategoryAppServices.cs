@@ -12,11 +12,11 @@ namespace ManagerCollection.ApplicationServices.Collections.Categories
     {
         Task<List<CategoryDto>> GetCategoriesAsync();
 
-        Task<int> AddCategoryAsync(Category category);
+        Task AddCategoryAsync(CategoryAddDto category);
 
         Task DeleteCategoryAsync(int categoryId);
         Task<CategoryDto> GetCategoryAsync(int categoryId);
 
-        Task EditCategoryAsync(Category category);
+        Task EditCategoryAsync(CategoryAddDto category);
     }
 }

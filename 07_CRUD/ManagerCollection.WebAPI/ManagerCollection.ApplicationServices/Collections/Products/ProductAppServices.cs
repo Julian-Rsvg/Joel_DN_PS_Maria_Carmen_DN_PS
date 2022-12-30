@@ -15,23 +15,40 @@ namespace ManagerCollection.ApplicationServices.Collections.Products
     public class ProductAppServices : IProductAppServices
     {
         private readonly IRepository<int, Product> _repository;
+        private readonly IRepository<int, Brand> _repositoryB;
+        private readonly IRepository<int, Category> _repositoryC;
         private readonly IMapper _mapper;
 
-        public ProductAppServices(IRepository<int, Product> repository, IMapper mapper)
+        public ProductAppServices(IRepository<int, Product> repository, IMapper mapper, 
+            IRepository<int, Brand> repositoryB, IRepository<int, Category> repositoryC)
         {
             _repository = repository;
+            _repositoryB = repositoryB;
+            _repositoryC = repositoryC;
             _mapper = mapper;
         }
 
-        public async Task<int> AddProductAsync(Product product)
+        public async Task AddProductAsync(ProductAddDto product)
         {
             if (string.IsNullOrWhiteSpace(product.Name))
             {
                 throw new Exception("value is null!, Insert Name!");
             }
-            //var p = _mapper.Map<Product>(product);
-            await _repository.AddAsync(product);
-            return product.Id;
+            var brand = await _repositoryB.GetAsync(product.BrandId);
+            var category = await _repositoryC.GetAsync(product.CategoryId);
+
+            if(brand == null)
+            {
+                throw new Exception("Brand don't found!");
+            }
+            if (category == null)
+            {
+                throw new Exception("category don't found!");
+            }
+
+
+            var p = _mapper.Map<Core.Product>(product);
+            await _repository.AddAsync(p);
         }
 
         public async Task DeleteProductAsync(int productId)
@@ -39,14 +56,25 @@ namespace ManagerCollection.ApplicationServices.Collections.Products
             await _repository.DeleteAsync(productId);
         }
 
-        public async Task EditProductAsync(Product product)
+        public async Task EditProductAsync(ProductAddDto product)
         {
             if (string.IsNullOrWhiteSpace(product.Name))
             {
                 throw new Exception("value is null!, Insert Name!");
             }
-            //var p = _mapper.Map<Product>(product);
-            await _repository.UpdateAsync(product);
+            var brand = await _repositoryB.GetAsync(product.BrandId);
+            var category = await _repositoryC.GetAsync(product.CategoryId);
+
+            if (brand == null)
+            {
+                throw new Exception("Brand don't found!");
+            }
+            if (category == null)
+            {
+                throw new Exception("category don't found!");
+            }
+            var p = _mapper.Map<Core.Product>(product);
+            await _repository.UpdateAsync(p);
         }
 
         public async Task<ProductDto> GetProductAsync(int productId)

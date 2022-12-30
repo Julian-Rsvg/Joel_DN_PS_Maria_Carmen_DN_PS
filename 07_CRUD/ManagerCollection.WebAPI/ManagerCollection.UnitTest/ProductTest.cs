@@ -31,32 +31,29 @@ namespace ManagerCollection.UnitTest
         [Test]
         public async Task PostProduct_should()
         {
-            Brand brand = new Brand
+            BrandAddDto brand = new BrandAddDto
             {
-                Id = 1,
                 Name = "Sonrix"
             };
             var repo = server.Host.Services.GetService<IBrandAppServices>();
             var rs = repo.AddBrandAsync(brand);
 
-            Category category = new Category
+            CategoryAddDto category = new CategoryAddDto
             {
-                Id = 1,
                 Name = "Dulces"
             };
             var repo2 = server.Host.Services.GetService<ICategoryAppServices>();
-            var rs2 = await repo2.AddCategoryAsync(category);
+            var rs2 = repo2.AddCategoryAsync(category);
 
-            Product product = new Product
+            ProductAddDto product = new ProductAddDto
             {
-                Id = 1,
                 Name = "Payaso",
-                Brand = new Brand { Id = 1},
-                Category = new Category { Id = 1}
+                BrandId = 1,
+                CategoryId = 1
             };
             var repository = server.Host.Services.GetService<IProductAppServices>();
-            var result = await repository.AddProductAsync(product);
-            IdProduct = result;
+            var result = repository.AddProductAsync(product);
+            IdProduct = result.Id;
             Assert.AreEqual(1, IdProduct);
         }
 
@@ -82,10 +79,12 @@ namespace ManagerCollection.UnitTest
         [Test]
         public async Task PutProduct_Test()
         {
-            Product category = new Product
+            ProductAddDto category = new ProductAddDto
             {
-                Id = 1,
-                Name = "Paletas"
+                Name = "Paletas",
+                BrandId = 1,
+                CategoryId = 1
+
             };
             var repository = server.Host.Services.GetService<IProductAppServices>();
             var result = repository.EditProductAsync(category);

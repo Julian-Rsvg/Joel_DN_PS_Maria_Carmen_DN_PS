@@ -339,13 +339,13 @@
               "target": "Package",
               "version": "[5.0.17, )"
             },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.15.1, )"
-            },
-            "Pomelo.EntityFrameworkCore.MySql": {
-              "target": "Package",
-              "version": "[5.0.4, )"
             },
             "Serilog.AspNetCore": {
               "target": "Package",

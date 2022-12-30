@@ -44,28 +44,18 @@ namespace ManagerCollection.WebAPI.Controllers
 
         // POST api/
         [HttpPost]
-        public async Task<Int32> Post(CategoryModel entity)
+        public async Task Post(CategoryAddDto entity)
         {
-            Category category = new Category
-            {
-                Name = entity.Name
-            };
-            var Result = await _categoryAppServices.AddCategoryAsync(category);
-            _logger.Information("insert values: " + category);
-            return Result;
+            await _categoryAppServices.AddCategoryAsync(entity);
+            _logger.Information("insert values: " + entity);
         }
 
         // PUT api/
         [HttpPut("{id}")]
-        public async Task Put(int id, CategoryModel entity)
+        public async Task Put(int id, CategoryAddDto entity)
         {
-            Category category = new Category
-            {
-                Id = id,
-                Name = entity.Name
-            };
-            await _categoryAppServices.EditCategoryAsync(category);
-            _logger.Information("Category value update: " + category);
+            await _categoryAppServices.EditCategoryAsync(entity);
+            _logger.Information("Category value update: " + entity);
         }
 
         // DELETE api/

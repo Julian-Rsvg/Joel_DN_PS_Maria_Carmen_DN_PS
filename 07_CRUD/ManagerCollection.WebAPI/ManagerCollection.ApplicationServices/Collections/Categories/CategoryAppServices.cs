@@ -23,15 +23,15 @@ namespace ManagerCollection.ApplicationServices.Collections.Categories
             _mapper = mapper;
         }
 
-        public async Task<int> AddCategoryAsync(Category category)
+        public async Task AddCategoryAsync(CategoryAddDto category)
         {
             if (string.IsNullOrWhiteSpace(category.Name))
             {
                 throw new Exception("value is null!, Insert Name!");
             }
-            //var c = _mapper.Map<Core.Category>(category);
-            await _repository.AddAsync(category);
-            return category.Id;
+            var c = _mapper.Map<Core.Category>(category);
+            await _repository.AddAsync(c);
+            //return category.Id;
         }
 
         public async Task DeleteCategoryAsync(int categoryId)
@@ -39,14 +39,14 @@ namespace ManagerCollection.ApplicationServices.Collections.Categories
             await _repository.DeleteAsync(categoryId);
         }
 
-        public async Task EditCategoryAsync(Category category)
+        public async Task EditCategoryAsync(CategoryAddDto category)
         {
             if (string.IsNullOrEmpty(category.Name))
             {
                 throw new Exception("value is null!, Insert Name!");
             }
-            //var c = _mapper.Map<Core.Category>(category);
-            await _repository.UpdateAsync(category);
+            var c = _mapper.Map<Core.Category>(category);
+            await _repository.UpdateAsync(c);
         }
 
         public async Task<List<CategoryDto>> GetCategoriesAsync()

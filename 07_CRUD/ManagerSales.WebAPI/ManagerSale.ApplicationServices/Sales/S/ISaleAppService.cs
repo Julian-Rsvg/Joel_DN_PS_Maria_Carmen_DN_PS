@@ -13,12 +13,12 @@ namespace ManagerSale.ApplicationServices.Sales.S
     {
         Task<List<SaleProductDto>> GetSaleProductsAsync();
 
-        Task<int> AddSaleProductAsync(SaleProduct entity);
+        Task AddSaleProductAsync(SaleProductAddDto entity);
 
         Task DeleteSaleProductAsync(int entityId);
 
         Task<SaleProductDto> GetSaleProductAsync(int entityId);
 
-        Task EditSaleProductAsync(SaleProduct entity);
+        Task EditSaleProductAsync(SaleProductAddDto entity);
     }
 }

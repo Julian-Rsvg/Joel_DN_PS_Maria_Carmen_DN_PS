@@ -16,27 +16,36 @@ namespace ManagerSale.ApplicationServices.Sales.S
     public class SaleAppService: ISaleAppService
     {
         private readonly IRepository<int, Core.SaleProduct> _repository;
+        private readonly IRepository<int, Core.Seller> _repositoryS;
         private readonly IProductCollectionAppService _prductAppService;
         IMapper _mapper;
 
-        public SaleAppService(IRepository<int, Core.SaleProduct> repository, IProductCollectionAppService prductAppService, IMapper mapper)
+        public SaleAppService(IRepository<int, Core.SaleProduct> repository, 
+            IProductCollectionAppService prductAppService, IMapper mapper, 
+            IRepository<int, Seller> repositoryS)
         {
             _repository = repository;
             _prductAppService = prductAppService;
             _mapper = mapper;
+            _repositoryS = repositoryS;
         }
 
-        public async Task<int> AddSaleProductAsync(SaleProduct entity)
+        public async Task AddSaleProductAsync(SaleProductAddDto entity)
         {
-            var product = await _prductAppService.GetProduct(entity.ProductId);
+            var product = await _prductAppService.GetProduct(entity.ProductId);            
 
             if (product == null)
             {
-                throw new Exception("Product not found");
+                throw new Exception("Product don't found");
             }
-            Core.SaleProduct saleProduct = _mapper.Map<Core.SaleProduct>(entity);
+
+            var seller = await _repositoryS.GetAsync(entity.SellerId);
+            if (seller == null)
+            {
+                throw new Exception("Seller don't found");
+            }
+            var saleProduct = _mapper.Map<Core.SaleProduct>(entity);
             await _repository.AddAsync(saleProduct);
-            return saleProduct.Id;
         }
 
 
@@ -45,16 +54,21 @@ namespace ManagerSale.ApplicationServices.Sales.S
             await _repository.DeleteAsync(entityId);
         }
 
-        public async Task EditSaleProductAsync(SaleProduct entity)
+        public async Task EditSaleProductAsync(SaleProductAddDto entity)
         {
             var product = await _prductAppService.GetProduct(entity.ProductId);
+            var seller = await _repositoryS.GetAsync(entity.SellerId);
 
             if (product == null)
             {
                 throw new Exception("Product not found");
             }
-            Core.SaleProduct saleProduct = _mapper.Map<Core.SaleProduct>(entity);
-            await _repository.UpdateAsync(entity);
+            if (seller == null)
+            {
+                throw new Exception("Seller don't found");
+            }
+            var saleProduct = _mapper.Map<Core.SaleProduct>(entity);
+            await _repository.UpdateAsync(saleProduct);
         }
 
         public async Task<SaleProductDto> GetSaleProductAsync(int entityId)

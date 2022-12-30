@@ -12,11 +12,11 @@ namespace ManagerSale.ApplicationServices.Sales.Sell
     {
         Task<List<SellerDto>> GetSellersAsync();
 
-        Task<int> AddSellerAsync(Seller seller);
+        Task AddSellerAsync(SellerAddDto seller);
 
         Task DeleteSellerAsync(int sellerId);
         Task<SellerDto> GetSellerAsync(int sellerd);
 
-        Task EditSellerAsync(Seller seller);
+        Task EditSellerAsync(SellerAddDto seller);
     }
 }

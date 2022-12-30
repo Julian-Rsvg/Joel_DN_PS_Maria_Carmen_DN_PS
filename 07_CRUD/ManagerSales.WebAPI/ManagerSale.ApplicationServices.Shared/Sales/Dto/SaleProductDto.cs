@@ -22,9 +22,5 @@ namespace ManagerSale.Sales.Dto
 
         public DateTime CreatedOn { get; set; }
 
-        public SaleProductDto()
-        {
-            Seller = new SellerDto();
-        }
     }
 }

@@ -44,28 +44,18 @@ namespace ManagerCollection.WebAPI.Controllers
 
         // POST api/
         [HttpPost]
-        public async Task<Int32> Post(BrandModel entity)
+        public async Task Post(BrandAddDto entity)
         {
-            Brand brand = new Brand
-            {
-                Name = entity.Name
-            };
-            var Result = await _brandAppServices.AddBrandAsync(brand);
-            _logger.Information("value insert: " + brand);
-            return Result;
+            await _brandAppServices.AddBrandAsync(entity);
+            _logger.Information("value insert: " + entity);
         }
 
         // PUT api/
         [HttpPut("{id}")]
-        public async Task Put(int id, BrandModel entity)
+        public async Task Put(int id, BrandAddDto entity)
         {
-            Brand brand = new Brand
-            {
-                Id = id,
-                Name = entity.Name
-            };
-            await _brandAppServices.EditBrandAsync(brand);
-            _logger.Information("value update: " + brand);
+            await _brandAppServices.EditBrandAsync(entity);
+            _logger.Information("value update: " + entity);
             
         }
 

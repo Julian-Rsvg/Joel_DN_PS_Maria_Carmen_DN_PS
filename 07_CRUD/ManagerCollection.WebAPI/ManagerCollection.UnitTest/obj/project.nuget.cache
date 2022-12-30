@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Pf8zQb9Ee4ui/9aRhhFCd1ODgjCMgZozilC3l8cE+aM90in6N8eS2M1hsiKdQhlWG8zo0qpRlbjQOS9syqfEtQ==",
+  "dgSpecHash": "shz3B8rzlysSuF8W9/X+ZRNCAQ9WIsF2nLUTkNXIjarHxazN7e/bPJrhFU4lp+eztUd4VnTcrRDkVvT3THT1KQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Julian\\Documents\\GitHub\\Joel_DN_PS_Maria_Carmen_DN_PS\\07_CRUD\\ManagerCollection.WebAPI\\ManagerCollection.UnitTest\\ManagerCollection.UnitTest.csproj",
   "expectedPackageFiles": [

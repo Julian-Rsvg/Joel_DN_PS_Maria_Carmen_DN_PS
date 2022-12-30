@@ -43,39 +43,19 @@ namespace ManagerSale.WebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<Int32> Post(SaleModel entity)
+        public async Task Post(SaleProductAddDto entity)
         {
-            SaleProduct sale = new SaleProduct { 
-                ProductId = entity.ProductId,
-                Seller= new Seller
-                {
-                    Id =entity.SellerId
-                },
-                Quantity = entity.Quantity,
-                Price = entity.Price
-            };
-            var Result = await _saleAppService.AddSaleProductAsync(sale);
-            _logger.Information("Insert Sale: " + sale);
-            return Result;
+            await _saleAppService.AddSaleProductAsync(entity);
+            _logger.Information("Insert Sale: " + entity);
+            
         }
 
         // PUT api/
         [HttpPut("{id}")]
-        public async Task Put(int id, SaleModel entity)
-        {
-            SaleProduct sale = new SaleProduct
-            {
-                Id = id,
-                ProductId = entity.ProductId,
-                Seller = new Seller
-                {
-                    Id = entity.SellerId
-                },
-                Quantity = entity.Quantity,
-                Price = entity.Price
-            };
-            await _saleAppService.EditSaleProductAsync(sale);
-            _logger.Information("Update product: " + sale);
+        public async Task Put(int id, SaleProductAddDto entity)
+        {            
+            await _saleAppService.EditSaleProductAsync(entity);
+            _logger.Information("Update product: " + entity);
 
         }
 

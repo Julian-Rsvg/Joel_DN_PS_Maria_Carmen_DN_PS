@@ -158,3 +158,4 @@ C:\Users\Julian\Documents\GitHub\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerSa
 C:\Users\Julian\Documents\GitHub\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerSales.WebAPI\ManagerSales.WebAPI\obj\Debug\net5.0\ManagerSale.WebAPI.pdb
 C:\Users\Julian\Documents\GitHub\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerSales.WebAPI\ManagerSales.WebAPI\obj\Debug\net5.0\ManagerSale.WebAPI.genruntimeconfig.cache
 C:\Users\Julian\Documents\GitHub\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerSales.WebAPI\ManagerSales.WebAPI\obj\Debug\net5.0\ref\ManagerSale.WebAPI.dll
+C:\Users\Julian\Documents\GitHub\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerSales.WebAPI\ManagerSales.WebAPI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll

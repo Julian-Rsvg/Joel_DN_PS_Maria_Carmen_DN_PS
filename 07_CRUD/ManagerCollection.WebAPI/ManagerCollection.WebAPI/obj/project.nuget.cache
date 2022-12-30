@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "VDyTbDpSBV6GWHeeQNLxVzQBZLloATkhuPY//PXRy8cIg/KK57vtdj9plyhBHS8F3eSHl9qe0OE+IK8zQj+aQw==",
+  "dgSpecHash": "J+y0fnmumxCu2HzLPG6vWW6D7KkZ9qLgD70A61LsWsiM0ivirMNvbVXL0clYe/kWKkzJJg2Voo19ueszKfZPrA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Julian\\Documents\\GitHub\\Joel_DN_PS_Maria_Carmen_DN_PS\\07_CRUD\\ManagerCollection.WebAPI\\ManagerCollection.WebAPI\\ManagerCollection.WebAPI.csproj",
   "expectedPackageFiles": [
@@ -19,6 +19,7 @@
     "C:\\Users\\Julian\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.17\\microsoft.entityframeworkcore.abstractions.5.0.17.nupkg.sha512",
     "C:\\Users\\Julian\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.17\\microsoft.entityframeworkcore.analyzers.5.0.17.nupkg.sha512",
     "C:\\Users\\Julian\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.17\\microsoft.entityframeworkcore.design.5.0.17.nupkg.sha512",
+    "C:\\Users\\Julian\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\5.0.17\\microsoft.entityframeworkcore.inmemory.5.0.17.nupkg.sha512",
     "C:\\Users\\Julian\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.17\\microsoft.entityframeworkcore.relational.5.0.17.nupkg.sha512",
     "C:\\Users\\Julian\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Julian\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",

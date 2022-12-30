@@ -25,17 +25,16 @@ namespace ManagerSale.UnitTest
         [Test]
         public async Task PostSeller_should()
         {
-            Seller seller = new Seller
+            SellerAddDto seller = new SellerAddDto
             {
-                Id = 1,
-                Name = "Lorena",
-                LastName ="Guerrero",
-                Email = "lorena@test.com",
-                Password = "#$%46466slL_R"
+                Name = "Rodrigo",
+                LastName ="Perez",
+                Email = "rodrigo@test.com",
+                Password = "_67645%DR$"
             };
             var repository = server.Host.Services.GetService<ISellerAppServices>();
-            var result = await repository.AddSellerAsync(seller);
-            IdSeller = result;
+            var result = repository.AddSellerAsync(seller);
+            IdSeller = result.Id;
             Assert.AreEqual(1, IdSeller);
         }
 
@@ -61,9 +60,8 @@ namespace ManagerSale.UnitTest
         [Test]
         public async Task PutSeller_Test()
         {
-            Seller seller = new Seller
+            SellerAddDto seller = new SellerAddDto
             {
-                Id = 1,
                 Name = "Laura",
                 LastName = "Torres",
                 Email = "laura@test.com",

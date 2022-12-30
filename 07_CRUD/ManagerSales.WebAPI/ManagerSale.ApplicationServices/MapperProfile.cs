@@ -12,11 +12,12 @@ namespace ManagerSale.ApplicationServices
         public MapperProfile()
         {
             CreateMap<ManagerSale.Core.SaleProduct, ManagerSale.Sales.Dto.SaleProductDto>();
-            CreateMap<ManagerSale.Sales.Dto.SaleProductDto, ManagerSale.Core.SaleProduct>();
+            CreateMap<ManagerSale.Sales.Dto.SaleProductAddDto, ManagerSale.Core.SaleProduct>()
+                .ForPath(dest => dest.Seller.Id, opt => opt.MapFrom(src => src.SellerId));
 
 
             CreateMap<ManagerSale.Core.Seller, ManagerSale.Sales.Dto.SellerDto>();
-            //CreateMap<ManagerSale.Sales.Dto.SellerDto, ManagerSale.Core.Seller>();
+            CreateMap<ManagerSale.Sales.Dto.SellerAddDto, ManagerSale.Core.Seller>();
 
             CreateMap<ManagerSale.Core.CollectionFK.Product, ManagerSale.Sales.Dto.ProdDto>();
         }

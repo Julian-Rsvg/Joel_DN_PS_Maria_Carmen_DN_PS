@@ -156,3 +156,4 @@ C:\Users\Julian\Documents\GitHub\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCo
 C:\Users\Julian\Documents\GitHub\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.WebAPI\obj\Debug\net5.0\ManagerCollection.WebAPI.pdb
 C:\Users\Julian\Documents\GitHub\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.WebAPI\obj\Debug\net5.0\ManagerCollection.WebAPI.genruntimeconfig.cache
 C:\Users\Julian\Documents\GitHub\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.WebAPI\obj\Debug\net5.0\ref\ManagerCollection.WebAPI.dll
+C:\Users\Julian\Documents\GitHub\Joel_DN_PS_Maria_Carmen_DN_PS\07_CRUD\ManagerCollection.WebAPI\ManagerCollection.WebAPI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll

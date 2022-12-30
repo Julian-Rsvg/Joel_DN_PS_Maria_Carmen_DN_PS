@@ -30,29 +30,26 @@ namespace ManagerSale.UnitTest
         [Test]
         public async Task PostSale_should()
         {
-            Seller seller = new Seller
+            SellerAddDto seller = new SellerAddDto
             {
-                Id = 1,
                 Name = "Lorena",
                 LastName = "Guerrero",
                 Email = "lorena@test.com",
                 Password = "#$%46466slL_R"
             };
             var repo = server.Host.Services.GetService<ISellerAppServices>();
-            var rs = await repo.AddSellerAsync(seller);
+            var rs = repo.AddSellerAsync(seller);
 
-            SaleProduct sale = new SaleProduct
+            SaleProductAddDto sale = new SaleProductAddDto
             {
-                Id = 1,
-                Seller = new Seller { Id = 1},
+                SellerId = 1,
                 ProductId = 1,
                 Quantity = 1,
-                Price = 10.00,
-                CreatedOn = DateTime.Now
+                Price = 10.00
             };
             var repository = server.Host.Services.GetService<ISaleAppService>();
-            var result = await repository.AddSaleProductAsync(sale);
-            IdSale = result;
+            var result = repository.AddSaleProductAsync(sale);
+            IdSale = result.Id;
             Assert.AreEqual(1, IdSale);
         }
 
@@ -78,14 +75,12 @@ namespace ManagerSale.UnitTest
         [Test]
         public async Task PutSale_Test()
         {
-            SaleProduct sale = new SaleProduct
+            SaleProductAddDto sale = new SaleProductAddDto
             {
-                Id = 1,
-                Seller = new Seller { Id = 1 },
+                SellerId = 1,
                 ProductId = 2,
                 Quantity = 1,
-                Price = 20.00,
-                CreatedOn = DateTime.Now
+                Price = 20.00
             };
             var repository = server.Host.Services.GetService<ISaleAppService>();
             var result = repository.EditSaleProductAsync(sale);

@@ -13,12 +13,12 @@ namespace ManagerCollection.ApplicationServices.Collections
 
         Task<List<BrandDto>> GetBrandsAsync();
 
-        Task<int> AddBrandAsync(Brand brand);
+        Task AddBrandAsync(BrandAddDto brand);
 
         Task DeleteBrandAsync(int brandId);
         Task<BrandDto> GetBrandAsync(int brandId);
 
-        Task EditBrandAsync(Brand brand);
+        Task EditBrandAsync(BrandAddDto brand);
 
     }
 }
