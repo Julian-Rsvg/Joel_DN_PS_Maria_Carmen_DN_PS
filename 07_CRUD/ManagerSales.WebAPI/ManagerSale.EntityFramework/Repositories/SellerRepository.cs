@@ -16,10 +16,18 @@ namespace ManagerSale.EntityFramework.Repositories
 
         }
 
-        public override async Task<Seller> GetAsync(int id)
+        public override async Task<Seller> UpdateAsync(Seller seller)
         {
-            var sale = await Context.Sellers.Include(x => x.Sales).FirstAsync(x => x.Id == id);
-            return sale;
+            var entity = await Context.Sellers.FindAsync(seller.Id);
+
+            entity.Name = seller.Name;
+            entity.LastName = seller.LastName;
+            entity.Email = seller.Email;
+            entity.Password = seller.Password;
+
+            await Context.SaveChangesAsync();
+
+            return entity;
         }
     }
 }

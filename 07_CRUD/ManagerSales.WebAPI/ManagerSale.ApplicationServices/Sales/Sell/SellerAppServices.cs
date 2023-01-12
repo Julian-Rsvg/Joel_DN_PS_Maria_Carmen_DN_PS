@@ -40,7 +40,7 @@ namespace ManagerSale.ApplicationServices.Sales.Sell
             await _repository.DeleteAsync(sellerId);
         }
 
-        public async Task EditSellerAsync(SellerAddDto seller)
+        public async Task EditSellerAsync(int id, SellerAddDto seller)
         {
             if (string.IsNullOrWhiteSpace(seller.Name) || string.IsNullOrWhiteSpace(seller.LastName)
                 || string.IsNullOrWhiteSpace(seller.Password) || string.IsNullOrWhiteSpace(seller.Email)
@@ -49,6 +49,7 @@ namespace ManagerSale.ApplicationServices.Sales.Sell
                 throw new Exception("Dont't insert values null please!");
             }
             var s = _mapper.Map<Core.Seller>(seller);
+            s.Id = id;
             await _repository.UpdateAsync(s);
         }
 

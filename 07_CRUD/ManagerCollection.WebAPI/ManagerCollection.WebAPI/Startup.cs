@@ -62,12 +62,12 @@ namespace ManagerCollection.WebAPI
 
 
             services.AddTransient<IBrandAppServices, BrandAppServices>();
-            services.AddTransient<IRepository<int, Core.Brand>, Repository<int, Core.Brand>>();
-            //services.AddTransient<IRepository<int, Core.Brand>, BrandRepository>();
+            //services.AddTransient<IRepository<int, Core.Brand>, Repository<int, Core.Brand>>();
+            services.AddTransient<IRepository<int, Core.Brand>, BrandRepository>();
 
             services.AddTransient<ICategoryAppServices, CategoryAppServices>();
-            services.AddTransient<IRepository<int, Core.Category>, Repository<int, Core.Category>>();
-            //services.AddTransient<IRepository<int, Core.Category>, CategoryRepository>();
+            //services.AddTransient<IRepository<int, Core.Category>, Repository<int, Core.Category>>();
+            services.AddTransient<IRepository<int, Core.Category>, CategoryRepository>();
 
             services.AddTransient<IProductAppServices, ProductAppServices>();
             services.AddTransient<IRepository<int, Core.Product>, ProductRepository> ();

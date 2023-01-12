@@ -79,15 +79,14 @@ namespace ManagerCollection.UnitTest
         [Test]
         public async Task PutProduct_Test()
         {
-            ProductAddDto category = new ProductAddDto
+            ProductAddDto product = new ProductAddDto
             {
                 Name = "Paletas",
                 BrandId = 1,
                 CategoryId = 1
-
             };
             var repository = server.Host.Services.GetService<IProductAppServices>();
-            var result = repository.EditProductAsync(category);
+            var result = repository.EditProductAsync(IdProduct, product);
             ProductDto productId = await repository.GetProductAsync(IdProduct);
             Assert.AreEqual(1, productId.Id);
         }

@@ -62,7 +62,7 @@ namespace ManagerCollection.UnitTest
                 Name = "Aurelita"
             };
             var repository = server.Host.Services.GetService<IBrandAppServices>();
-            var result = repository.EditBrandAsync(brand);
+            var result = repository.EditBrandAsync(IdBrand, brand);
             BrandDto brandId = await repository.GetBrandAsync(IdBrand);
             Assert.AreEqual(1, brandId.Id);
         }

@@ -49,8 +49,9 @@ namespace ManagerCollection.EntityFramwork.Repositories
             var category =await Context.Categories.FindAsync(product.Category.Id);
 
 
-            var entity = await Context.ProductsType.FindAsync(product.Id);            
+            var entity = await Context.ProductsType.FindAsync(product.Id);
 
+            //entity.Id = product.Id;
             entity.Name = product.Name;
             entity.Category = category;
             entity.Brand = brand;

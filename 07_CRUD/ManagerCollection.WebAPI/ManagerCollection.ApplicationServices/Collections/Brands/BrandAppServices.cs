@@ -17,6 +17,7 @@ namespace ManagerCollection.ApplicationServices.Collections
     {
         private readonly IRepository<int,Core.Brand> _repository;
         private readonly IMapper _mapper;
+        private int id;
 
         public BrandAppServices(IRepository<int, Core.Brand> repository, IMapper mapper)
         {
@@ -40,13 +41,14 @@ namespace ManagerCollection.ApplicationServices.Collections
             await _repository.DeleteAsync(brandId);
         }
 
-        public async Task EditBrandAsync(BrandAddDto brand)
+        public async Task EditBrandAsync(int id, BrandAddDto brand)
         {
             if (string.IsNullOrWhiteSpace(brand.Name))
             {
                 throw new Exception("value is null!, Insert Name!");
             }
             var b = _mapper.Map<Core.Brand>(brand);
+            b.Id = id;
             await _repository.UpdateAsync(b);
         }
 

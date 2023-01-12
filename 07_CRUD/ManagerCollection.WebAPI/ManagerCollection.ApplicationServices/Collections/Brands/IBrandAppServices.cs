@@ -18,7 +18,7 @@ namespace ManagerCollection.ApplicationServices.Collections
         Task DeleteBrandAsync(int brandId);
         Task<BrandDto> GetBrandAsync(int brandId);
 
-        Task EditBrandAsync(BrandAddDto brand);
+        Task EditBrandAsync(int id, BrandAddDto brand);
 
     }
 }

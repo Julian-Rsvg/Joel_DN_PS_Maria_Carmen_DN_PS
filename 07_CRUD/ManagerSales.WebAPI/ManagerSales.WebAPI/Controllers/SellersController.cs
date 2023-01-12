@@ -56,7 +56,7 @@ namespace ManagerSale.WebAPI.Controllers
         [HttpPut("{id}")]
         public async Task Put(int id, SellerAddDto entity)
         {
-            await _sellerAppServices.EditSellerAsync(entity);
+            await _sellerAppServices.EditSellerAsync(id, entity);
             _logger.Information("Seller upadate: " +entity);
         }
 

@@ -17,10 +17,16 @@ namespace ManagerCollection.EntityFramwork.Repositories
 
         }
 
-        public override async Task<Brand> GetAsync(int id)
+
+        public override async Task<Brand> UpdateAsync(Brand brand)
         {
-            var brand = await Context.Brands.Include(x => x.Products).FirstAsync(x => x.Id == id);
-            return brand;
+            var entity = await Context.Brands.FindAsync(brand.Id);
+
+            entity.Name = brand.Name;
+
+            await Context.SaveChangesAsync();
+
+            return entity;
         }
     }
 }

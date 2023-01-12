@@ -17,10 +17,15 @@ namespace ManagerCollection.EntityFramwork.Repositories
         {
 
         }
-        public override async Task<Category> GetAsync(int id)
+        public override async Task<Category> UpdateAsync(Category category)
         {
-            var category = await Context.Categories.Include(x => x.Products).FirstAsync(x => x.Id == id);
-            return category;
+            var entity = await Context.Categories.FindAsync(category.Id);
+
+            entity.Name = category.Name;
+
+            await Context.SaveChangesAsync();
+
+            return entity;
         }
     }
 }

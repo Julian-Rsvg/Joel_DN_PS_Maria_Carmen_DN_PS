@@ -68,7 +68,7 @@ namespace ManagerSale.UnitTest
                 Password = "#7888ur_#"
             };
             var repository = server.Host.Services.GetService<ISellerAppServices>();
-            var result = repository.EditSellerAsync(seller);
+            var result = repository.EditSellerAsync(IdSeller, seller);
             SellerDto sellerId = await repository.GetSellerAsync(IdSeller);
             Assert.AreEqual(1, sellerId.Id);
         }

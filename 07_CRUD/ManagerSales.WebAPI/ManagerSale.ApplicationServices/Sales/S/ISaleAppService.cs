@@ -19,6 +19,6 @@ namespace ManagerSale.ApplicationServices.Sales.S
 
         Task<SaleProductDto> GetSaleProductAsync(int entityId);
 
-        Task EditSaleProductAsync(SaleProductAddDto entity);
+        Task EditSaleProductAsync(int id, SaleProductAddDto entity);
     }
 }

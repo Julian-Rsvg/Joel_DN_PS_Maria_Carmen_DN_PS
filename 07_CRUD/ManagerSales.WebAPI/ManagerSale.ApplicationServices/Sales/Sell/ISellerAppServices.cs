@@ -17,6 +17,6 @@ namespace ManagerSale.ApplicationServices.Sales.Sell
         Task DeleteSellerAsync(int sellerId);
         Task<SellerDto> GetSellerAsync(int sellerd);
 
-        Task EditSellerAsync(SellerAddDto seller);
+        Task EditSellerAsync(int id, SellerAddDto seller);
     }
 }

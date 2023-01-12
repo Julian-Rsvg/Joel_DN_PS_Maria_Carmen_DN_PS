@@ -83,7 +83,7 @@ namespace ManagerSale.UnitTest
                 Price = 20.00
             };
             var repository = server.Host.Services.GetService<ISaleAppService>();
-            var result = repository.EditSaleProductAsync(sale);
+            var result = repository.EditSaleProductAsync(IdSale, sale);
             SaleProductDto saleId = await repository.GetSaleProductAsync(IdSale);
             Assert.AreEqual(1, saleId.Id);
         }

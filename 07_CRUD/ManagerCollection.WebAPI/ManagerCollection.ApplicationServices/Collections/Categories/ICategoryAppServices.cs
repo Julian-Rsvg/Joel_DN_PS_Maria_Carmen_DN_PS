@@ -17,6 +17,6 @@ namespace ManagerCollection.ApplicationServices.Collections.Categories
         Task DeleteCategoryAsync(int categoryId);
         Task<CategoryDto> GetCategoryAsync(int categoryId);
 
-        Task EditCategoryAsync(CategoryAddDto category);
+        Task EditCategoryAsync(int id, CategoryAddDto category);
     }
 }

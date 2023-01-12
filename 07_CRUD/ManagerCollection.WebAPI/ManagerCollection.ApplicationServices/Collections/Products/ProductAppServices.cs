@@ -56,7 +56,7 @@ namespace ManagerCollection.ApplicationServices.Collections.Products
             await _repository.DeleteAsync(productId);
         }
 
-        public async Task EditProductAsync(ProductAddDto product)
+        public async Task EditProductAsync(int id, ProductAddDto product)
         {
             if (string.IsNullOrWhiteSpace(product.Name))
             {
@@ -74,6 +74,7 @@ namespace ManagerCollection.ApplicationServices.Collections.Products
                 throw new Exception("category don't found!");
             }
             var p = _mapper.Map<Core.Product>(product);
+            p.Id = id;
             await _repository.UpdateAsync(p);
         }
 

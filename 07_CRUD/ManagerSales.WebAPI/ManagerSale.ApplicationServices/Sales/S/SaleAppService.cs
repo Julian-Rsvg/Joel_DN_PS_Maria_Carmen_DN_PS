@@ -54,7 +54,7 @@ namespace ManagerSale.ApplicationServices.Sales.S
             await _repository.DeleteAsync(entityId);
         }
 
-        public async Task EditSaleProductAsync(SaleProductAddDto entity)
+        public async Task EditSaleProductAsync(int id, SaleProductAddDto entity)
         {
             var product = await _prductAppService.GetProduct(entity.ProductId);
             var seller = await _repositoryS.GetAsync(entity.SellerId);
@@ -68,6 +68,7 @@ namespace ManagerSale.ApplicationServices.Sales.S
                 throw new Exception("Seller don't found");
             }
             var saleProduct = _mapper.Map<Core.SaleProduct>(entity);
+            saleProduct.Id = id;
             await _repository.UpdateAsync(saleProduct);
         }
 

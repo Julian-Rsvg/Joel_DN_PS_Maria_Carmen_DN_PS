@@ -54,7 +54,7 @@ namespace ManagerSale.WebAPI.Controllers
         [HttpPut("{id}")]
         public async Task Put(int id, SaleProductAddDto entity)
         {            
-            await _saleAppService.EditSaleProductAsync(entity);
+            await _saleAppService.EditSaleProductAsync(id,entity);
             _logger.Information("Update product: " + entity);
 
         }

@@ -66,7 +66,7 @@ namespace ManagerCollection.UnitTest
                 Name = "Paletas"
             };
             var repository = server.Host.Services.GetService<ICategoryAppServices>();
-            var result = repository.EditCategoryAsync(category);
+            var result = repository.EditCategoryAsync(IdCategory, category);
             CategoryDto categoryId = await repository.GetCategoryAsync(IdCategory);
             Assert.AreEqual(1, categoryId.Id);
         }

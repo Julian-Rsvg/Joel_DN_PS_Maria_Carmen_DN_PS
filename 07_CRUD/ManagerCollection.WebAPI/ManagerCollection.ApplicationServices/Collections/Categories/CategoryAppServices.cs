@@ -39,13 +39,14 @@ namespace ManagerCollection.ApplicationServices.Collections.Categories
             await _repository.DeleteAsync(categoryId);
         }
 
-        public async Task EditCategoryAsync(CategoryAddDto category)
+        public async Task EditCategoryAsync(int id, CategoryAddDto category)
         {
             if (string.IsNullOrEmpty(category.Name))
             {
                 throw new Exception("value is null!, Insert Name!");
             }
             var c = _mapper.Map<Core.Category>(category);
+            c.Id = id;
             await _repository.UpdateAsync(c);
         }
 

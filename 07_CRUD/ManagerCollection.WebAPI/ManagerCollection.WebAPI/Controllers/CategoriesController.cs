@@ -54,7 +54,7 @@ namespace ManagerCollection.WebAPI.Controllers
         [HttpPut("{id}")]
         public async Task Put(int id, CategoryAddDto entity)
         {
-            await _categoryAppServices.EditCategoryAsync(entity);
+            await _categoryAppServices.EditCategoryAsync(id, entity);
             _logger.Information("Category value update: " + entity);
         }
 

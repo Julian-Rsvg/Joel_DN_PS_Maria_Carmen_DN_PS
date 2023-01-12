@@ -17,6 +17,6 @@ namespace ManagerCollection.ApplicationServices.Collections.Products
         Task DeleteProductAsync(int productId);
         Task<ProductDto> GetProductAsync(int productId);
 
-        Task EditProductAsync(ProductAddDto product);
+        Task EditProductAsync(int id, ProductAddDto product);
     }
 }

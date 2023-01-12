@@ -54,9 +54,10 @@ namespace ManagerCollection.WebAPI.Controllers
         [HttpPut("{id}")]
         public async Task Put(int id, BrandAddDto entity)
         {
-            await _brandAppServices.EditBrandAsync(entity);
-            _logger.Information("value update: " + entity);
             
+            await _brandAppServices.EditBrandAsync(id,entity);
+            
+            _logger.Information("value update: " + entity);            
         }
 
         // DELETE api/
